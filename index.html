@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chicago Beach Quality </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Chicago Beach Quality Dashboard</h1>
+      </div>
+      
+      <div class="row">
+        <h2>Summary</h2>
+        <p>The Chicago Park District collects and analyzes water samples from beaches along Chicago’s Lake Michigan lakefront. The Chicago Park District partners with the University of Illinois at Chicago Department of Public Health Laboratory to analyze water samples using a new DNA testing method called Rapid Testing Method (qPCR analysis) which tests for Enterococci in order to monitor swimming safety.
+
+          The rapid testing method (qPCR analysis) is a new method that measures levels of pathogenic DNA in beach water. Unlike the culture based test that requires up to 24 hours of processing, the new rapid testing method requires a 4-5 hours for results. The Chicago Park District can use results of the rapid test to notify the public when levels exceed UPEPA recommended levels, which is 1000* CCE. When DNA bacteria levels exceed 1000 CCE, a yellow swim advisory flag is implemented. For more information please refer to the USEPA Recreational Water Quality Criteria.
+          
+          The goal of this project
+          
+          This project aims to store below data resources in SQL database in order to measure correlation between bacteria levels found on different beaches and beach temperature going forward.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="well">
+          <h5>Summer Year:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Demographic Info</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div id="bar"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="gauge"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="./static/js/app.js"></script>
+  <!-- <script src="./static/js/bonus.js"></script> -->
+  <script src="./samples.json"></script>
+  
+</body>
+
+</html>
