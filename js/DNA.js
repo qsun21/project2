@@ -15,7 +15,7 @@ function optionChanged(option) {
   updateMetadata(option, data);
 }
 
-d3.json("sample.json").then(function(fileData) {
+d3.json("https://nwu-qianmariomahomedpam-proj2.herokuapp.com/data").then(function(fileData) {
   data = fileData;
   var dropdownMenu = d3.select("#selDataset");
   defaultOption = dropdownMenu.append("option");
