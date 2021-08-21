@@ -133,63 +133,6 @@
     <script type="text/javascript" src="static/js/config.js"></script>
     <script type="text/javascript" src="static/js/plot.js"></script>
    
-    <!-- Demo setup
-    <script>
-        var circles = [];
-        var initDate = '2001-02-23t09:00:00';
-        var timeFormatter = d3.timeFormat('%Y-%m-%dt%H:%M:%S');
-        var numberFormatter = d3.format(".1f");
-
-        var properties = [
-            { code: 'DNA Reading', desc: 'benzene level measured in μg/m³' },
-            { code: 'Air Temperature', desc: 'carbon monoxide level measured in mg/m³' },
-            { code: 'Humidity', desc: 'ethylbenzene level measured in μg/m³' },
-            { code: 'Air Pressure', desc: 'm-xylene level measured in μg/m³' },
-            { code: 'Wind Speed', desc: 'toluene (methylbenzene) level measured in μg/m³' }
-        ];
-        var currProperty = 'PM10';
-        var theMap = L.map('map', {maxZoom: 14});
-        theMap.attributionControl.addAttribution('Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>');
-
-        L.tileLayer('http://tile.stamen.com/terrain/{z}/{x}/{y}.png').addTo(theMap);
-        // center of madrid
-        theMap.setView([41.9, -87.66], 11);
-        var spaceID = [SpaceID];
-        var accessToken = [AccessToken];
-        var radiusScale = d3.scaleLinear().domain([0, 200]).range([7, 70]).clamp(true);
-        var colorScale = d3.scaleSequential(d3.interpolateOrRd).domain([0, 100]);
-
-        function renderCircles() {
-        // remove old markers
-        circles.forEach(function(c) {
-            c.remove();
-        })
-        circles = [];
-
-        theData.features.forEach(function(feature) {
-            var c = L.circleMarker(
-                [feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
-                    radius: radiusScale(feature.properties[currProperty]),
-                    // color: colorScale(feature.properties[currProperty]),
-                    color: 'black',
-                    fillColor: colorScale(feature.properties[currProperty]),
-                    fillOpacity: 0.5
-                });
-            c.addTo(theMap);
-            c.bindTooltip('<h3>' + feature.properties.name + '</h3>' + '<b>' + currProperty + ': </b>' + numberFormatter(feature.properties[currProperty]) + '<br>' + properties.filter(d => d.code === currProperty)[0].desc);
-            circles.push(c);
-        });
-        }
-
-        function fetchData(dateStr) {
-        var url = 'https://xyz.api.here.com/hub/spaces/' + spaceID + '/search?limit=100&access_token=' + accessToken + '&tags=' + dateStr;
-        d3.json(url).then(function(data) {
-            theData = data;
-            renderCircles();
-        });
-        }
-
-        fetchData(initDate); -->
-    <!-- </script> -->
+   
   </body>
 </html>
