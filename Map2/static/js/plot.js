@@ -30,6 +30,8 @@ function renderProperties() {
     }
 renderProperties();
 
+console.log(L.Icon.Default.prototype._getIconUrl());
+
 var theMap = L.map('map', {maxZoom: 14});
 theMap.attributionControl.addAttribution('Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>');
 
