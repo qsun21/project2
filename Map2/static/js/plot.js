@@ -1,4 +1,3 @@
-
 var circles = [];
 var initDate = "2019-07-31";
 var timeFormatter = d3.timeFormat('%Y-%m-%dt');
@@ -93,4 +92,3 @@ fetchData(initDate);
            fetchData(timeFormatter(selectedDates[0]))
         }
      });
-     calendar.setDate(initDate); 
