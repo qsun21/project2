@@ -71,7 +71,7 @@ function renderCircles() {
 
 function fetchData(dateStr) {
 //    var url = 'https://xyz.api.here.com/hub/spaces/' + spaceID + '/search?limit=100&access_token=' + accessToken + '&tags=' + dateStr;
-   d3.json("sample.json").then(function(data) {
+   d3.json("https://nwu-qianmariomahomedpam-proj2.herokuapp.com/data").then(function(data) {
       theData = data;
       dateStr = parseFloat(theData.dna_sample_timestamps);
       console.log(theData);
