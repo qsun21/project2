@@ -3,3 +3,22 @@
     font-size: 13px;
     border-radius: 10px;
 }
+
+.mydropdown {
+    font-size: 15px;
+    border: none;
+    outline: none;
+    padding: 7px 7px;
+}
+
+.mydropdown option {
+    font-size: 15px;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+}
+
+.title {
+    font-size: 45px;
+    text-align: center;
+}
