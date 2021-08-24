@@ -7,11 +7,13 @@ var DNAMean;
 
 function optionChanged(option) {
   if(option == 'Station Name') {
-      clearHistogram();
+      clearChart('histogram');
+      clearChart('scatter');
       clearMetadata();
       return;
   }
-  createHistogram(option, data);
+  createChart(option, data, 'humidityReadings', 'dna_reading_means', 'histogram', 'histogram');
+  createChart(option, data, 'Air Temperature', 'dna_reading_means', 'scatter', 'scatter');
   updateMetadata(option, data);
 }
 
@@ -32,25 +34,26 @@ d3.json("https://nwu-qianmariomahomedpam-proj2.herokuapp.com/data").then(functio
 });
 
 
-function createHistogram(option, histData) {
-  dna_reading_means = [];
-  humidityReadings = [];
-  histogram = d3.select("#histogram");
-  histogram.style("display", "inline");
+function createChart(option, data, xName, yName, tagName, type) {
+  yPoints = [];
+  xPoints = [];
+  chart = d3.select(`#${tagName}`);
+  chart.style("display", "inline");
 
-  for(var i = 0; i < histData.stationNames.length; i++) { 
-    if(histData.stationNames[i] == option) {
-      dna_reading_means.push(histData.dna_reading_means[i]);
-      humidityReadings.push(histData.humidityReadings[i]);
+  for(var i = 0; i < data.stationNames.length; i++) { 
+    if(data.stationNames[i] == option) {
+      yPoints.push(data[yName][i]);
+      xPoints.push(data[xName][i]);
     }
   }    
 
+ 
   var trace1 = {
-    x: humidityReadings,
-    y: dna_reading_means,
-    mode: 'markers+text',
-    type: 'histogram',
-    name: 'DNA Bacterial level VS Humidity ',
+    x: xPoints,
+    y: yPoints,
+    mode: 'markers',
+    type: type,
+    name: `DNA Bacterial level VS ${xName}`,
     text: option,
     textposition: 'center',
     textfont: {
@@ -58,10 +61,10 @@ function createHistogram(option, histData) {
     },
     marker: { size: 5 }
   };
-  
+
   var layout = {
       xaxis: {
-        title: 'humidity',
+        title: `${xName}`,
         autotick: true,
         showline: true,
         ticks: 'outside',
@@ -82,16 +85,15 @@ function createHistogram(option, histData) {
         tickcolor: '#000'
       }
     };
-  
-  var data = [trace1];
-  
-  Plotly.newPlot('histogram', data, layout);
 
+    var data = [trace1];
+
+    Plotly.newPlot(`${tagName}`, data, layout);
 }
 
-function clearHistogram() {
-  var histogram = d3.select("#histogram");
-  histogram.style("display", "none");
+function clearChart(tagName) {
+  var chart = d3.select(`${tagName}`);
+  chart.style("display", "none");
 }
 
 function clearMetadata() {
