@@ -92,7 +92,7 @@ function createChart(option, data, xName, yName, tagName, type) {
 }
 
 function clearChart(tagName) {
-  var chart = d3.select(`${tagName}`);
+  var chart = d3.select(`#${tagName}`);
   chart.style("display", "none");
 }
 
