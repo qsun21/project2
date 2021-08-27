@@ -10,7 +10,7 @@ import os
 
 
 connection_string = os.environ['DATABASE_URL']
-connection_string.replace('postgres', 'postgresql')
+connection_string.replace("postgres", "postgresql")
 
 print("HERE******" + connection_string)
 
