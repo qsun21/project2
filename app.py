@@ -39,6 +39,7 @@ def hello():
     result['dna_reading_means'] = []
     result['Latitude'] = []
     result['Longitude']=[]
+    result['timestamp'] =[]
     for row in join_results:
         result.get('Air Temperature').append(getattr(row[1], 'Air Temperature'))
         result.get('stationNames').append(row[0].station_names)
@@ -48,6 +49,7 @@ def hello():
         result.get('dna_reading_means').append(row[0].dna_reading_means)
         result.get('Latitude').append(row[0].Latitude)
         result.get('Longitude').append(row[0].Longitude)
+        result.get('timestamp').append(row[1].measurement_timestamp)
 
     resp = Response(json.dumps(result))
     resp.headers['Access-Control-Allow-Origin'] = '*'
