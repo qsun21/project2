@@ -8,8 +8,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.automap import automap_base
 import os
 
-# engine = create_engine(os.environ['DATABASE_URL'])
-engine = create_engine('postgresql://postgres:postgres@localhost:5432/weatherStation')
+engine = create_engine(os.environ['DATABASE_URL'])
 connection = engine.connect()
 
 Session = sessionmaker(bind=engine)
