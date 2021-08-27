@@ -9,7 +9,11 @@ from sqlalchemy.ext.automap import automap_base
 import os
 
 
-engine = create_engine(os.environ['DATABASE_URL'])
+connection_string = os.environ['DATABASE_URL']
+connection_string.replace('postgres', 'postgresql')
+
+engine = create_engine(connection_string)
+
 connection = engine.connect()
 
 Session = sessionmaker(bind=engine)
