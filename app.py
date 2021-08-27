@@ -8,7 +8,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.automap import automap_base
 import os
 
-engine = create_engine(os.environ['DATABASE_URL'])
+# engine = create_engine(os.environ['DATABASE_URL'])
+engine = create_engine('postgresql://postgres:postgres@localhost:5432/weatherStation')
 connection = engine.connect()
 
 Session = sessionmaker(bind=engine)
@@ -49,7 +50,7 @@ def hello():
         result.get('dna_reading_means').append(row[0].dna_reading_means)
         result.get('Latitude').append(row[0].Latitude)
         result.get('Longitude').append(row[0].Longitude)
-        result.get('timestamp').append(row[1].measurement_timestamp)
+        result.get('timestamp').append(row[1].measurement_timestamp.isoformat())
 
     resp = Response(json.dumps(result))
     resp.headers['Access-Control-Allow-Origin'] = '*'
