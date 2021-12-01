@@ -1,5 +1,8 @@
 # Project 2 – Chicago Beach Data Overview
 
+Website:
+https://qsun21.github.io/project2/
+
 Our task was to pick an interesting data set and provide and interactive way for users to explore the data. Using a combination of tools, we created a website with three distinct views that included: a homepage, multiple interactive maps, and a moving text. 
 
 Team Members: Mario, Mohamed, Pamela, & Qian
